@@ -9,6 +9,8 @@
     <script src="./bootstrap-5.2.0-dist/js/bootstrap.js"></script>
     <link rel="stylesheet" href="./css/style.css">
     <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.9.4/dayjs.min.js" integrity="sha512-XZSHSEFj4QeE0G4pwy4tToyAhF2VXoEcF9CP0t1PSZMP2XHhEEB9PjM9knsdzcEKbi6GRMazdt8tJadz0JTKIQ==" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/dayjs@1.9.4/locale/es.js"></script>
 </head>
 <body>
     <h1 align="center">Simulación de transito en la C1.</h1>
@@ -16,14 +18,19 @@
     <br>
         <form class="myForm">
             <div>
-                <label for="inicio">Inicio de Simulación:</label>
-                <input type="datetime-local" name="inicio" id="inicio">
+                <label for="inicio1">Inicio de Simulación:</label>
+                <input type="datetime-local" name="inicio" id="inicio" min="2022-07-25 00:00" autofocus required>
+                <!--input type="number" name="inicio" id="inicio1" min="1" max="31" placeholder="DD" required>/
+                <input type="number" name="inicio" id="inicio2" min="1" max="12" placeholder="MM" required>/
+                <input type="number" name="inicio" id="inicio3" min="2022" max="2023" placeholder="AAAA"required>-
+                <input type="number" name="inicio" id="inicio4" min="0" max="23" placeholder="HH" required>:
+                <input type="number" name="inicio" id="inicio5" min="0" max="59" placeholder="mm" required-->
             </div>
             <div>
                 <label for="final">Final de Simulación:</label>
-                <input type="datetime-local" name="final" id="final">
+                <input type="datetime-local" name="final" id="final" min="2022-07-26 00:00" autofocus required>
             </div>
-            <input class="bs-button" type="button" onclick="start()" name="btn" id="btn" value="Iniciar Simulación">
+            <input type="button" onclick="start()" name="btn" id="btn" value="Iniciar Simulación">
         </form>
         <div id="modalBtn" style="margin-left: 20%;"></div>
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -36,6 +43,9 @@
                         Fecha de inicio de la simulación: <span class="item1" id="1"></span>
                         <br>
                         Fecha de finalización de la simulación: <span class="item2" id="2"></span>
+                        <hr>
+                        Tiempo de simulación: <span id="timer"></span><br>
+                        <h3 id="prueba"></h3>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -44,17 +54,18 @@
             </div>
         </div>
         <br>
-        <table align="center">
-            <thead>
+        <table align="center" border="1">
+            <thead align="center">
                 <tr>
                     <th># de Eventos</th>
                     <th>Evento</th>
                     <th>Tiempo transcurrido</th>
                     <th>Sentido de Trayecto</th>
+                    <th>Día</th>
                 </tr>
             </thead>
-            <tbody align="center">
-                <tr id="tr">
+            <tbody align="center" id="tablaprueba">
+                <tr>
 
                 </tr>
             </tbody>
