@@ -1,0 +1,20 @@
+.myForm{
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 25px;
+    text-align: center;
+    gap: 25px 0;
+}
+
+.myForm > input[type=button]{
+    margin: auto;
+    width: 20%;
+}
+
+table th {
+    padding: 10px 50px 10px 50px;
+    background-color: #eaeaea;
+}

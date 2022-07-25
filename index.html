@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulación C1</title>
+    <link rel="stylesheet" href="./bootstrap-5.2.0-dist/css/bootstrap.css">
+    <script src="./bootstrap-5.2.0-dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1 align="center">Simulación de transito en la C1.</h1>
+    <h3 align="center">Presentado por: Andrés Rosales, Daniele Mosquera y Alexander González.</h3>
+    <br>
+        <form class="myForm">
+            <div>
+                <label for="inicio">Inicio de Simulación:</label>
+                <input type="datetime-local" name="inicio" id="inicio">
+            </div>
+            <div>
+                <label for="final">Final de Simulación:</label>
+                <input type="datetime-local" name="final" id="final">
+            </div>
+            <input class="bs-button" type="button" onclick="start()" name="btn" id="btn" value="Iniciar Simulación">
+        </form>
+        <div id="modalBtn" style="margin-left: 20%;"></div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Información</h5>
+                    </div>
+                    <div class="modal-body">
+                        Fecha de inicio de la simulación: <span class="item1" id="1"></span>
+                        <br>
+                        Fecha de finalización de la simulación: <span class="item2" id="2"></span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <table align="center">
+            <thead>
+                <tr>
+                    <th># de Eventos</th>
+                    <th>Evento</th>
+                    <th>Tiempo transcurrido</th>
+                    <th>Sentido de Trayecto</th>
+                </tr>
+            </thead>
+            <tbody align="center">
+                <tr id="tr">
+
+                </tr>
+            </tbody>
+        </table>
+</body>
+</html>
