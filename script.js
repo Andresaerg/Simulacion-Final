@@ -93,6 +93,13 @@
             }
         };
         
+        let colision = 0;
+        let mantVerdes = 0;
+        let mantElect = 0;
+        let reparaciones = 0;
+        let cierres = 0;
+        let manifestaciones = 0;
+        let contador = 1;
 
         if(startTime > 0 && endTime > 0){
             document.getElementById("tablaprueba").innerHTML = " ";
@@ -104,6 +111,7 @@
             endTimeInfo.innerHTML = endTime.format("DD/MM/YYYY H:mm");
 
             document.getElementById("modalBtn").innerHTML = "<button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal'> Datos puntuales </button>";
+            document.getElementById("modalBtnInf").innerHTML = "<button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#myModal'> Informe técnico </button>";
             console.log(dayjs(startInfo.value));
 
             const myInterval = setInterval(() => {
@@ -120,27 +128,20 @@
                 let dateAux = new Date(startTime);
                 const currentDay = dateAux.getDay();
                 const dayname = dias[currentDay];
-                prueba.innerHTML = dayname;
+                prueba.innerHTML = dayname+" "+endTime.format("DD/MM/YYYY");
 
                 if (distance <= 0) {
 
                     timer.innerHTML = "Finalizó";
                     clearInterval(myInterval);
+                    console.log("Colisiones: "+colision+"\nMant. áreas verdes: "+ mantVerdes+"\nMant sistemas elect: "+mantElect+"\nManifestaciones "+manifestaciones+"\nReparaciones: "+reparaciones+"\nCierres: "+cierres);
                 } else {
 
-                distance -= 8000000;
-                startTime = startTime.add(8000000, 'millisecond');
+                distance -= 43200000;
+                startTime = startTime.add(43200000, 'millisecond');
                 let hora = startTime.hour() + ":" + startTime.minute();
 
-            let colision = 0;
-            let mantVerdes = 0;
-            let mantElect = 0;
-            let reparaciones = 0;
-            let cierres = 0;
-            let manifestaciones = 0;
-            let contador = 1;
-
-            for(let i = days; i >= 0; i--){
+            //for(let i = days; i >= 0; i--){
 
                 let eventos = Math.floor(Math.random() * 101);
 
@@ -148,26 +149,26 @@
                     mantVerdes += 1;
                     let tiempo = Math.floor(Math.random() * (480 - 240)+ 240) +" minutos";
                     let trayecto = Math.floor(Math.random() * (3 - 1) + 1);
-                    if(trayecto == 1)
-                    trayecto = "Norte-Sur";
-                    else
-                    trayecto = "Sur-Norte";
+                    if(trayecto == 1){
+                    trayecto = "Norte-Sur";}
+                    else{
+                    trayecto = "Sur-Norte";}
                     console.log(tiempo);
                     document.getElementById("tablaprueba").insertRow(-1).innerHTML = '<td>'+contador+'</td><td>Mantenimiento de áreas verdes</td><td>'+tiempo+'</td><td>'+trayecto+'</td><td>'+dayname+'</td>';
                     console.log({dayname});
-                    contador +=1;
+                    contador ++;
                 }
 
                 if(eventos >15 && eventos <=20){
                     colision += 1;
                     let tiempo = Math.floor(Math.random() * (120 - 60)+ 60) +" minutos";
                     let trayecto = Math.floor(Math.random() * (3 - 1) + 1);
-                    if(trayecto == 1)
-                    trayecto = "Norte-Sur";
-                    else
-                    trayecto = "Sur-Norte";
+                    if(trayecto == 1){
+                    trayecto = "Norte-Sur";}
+                    else{
+                    trayecto = "Sur-Norte";}
                     console.log(tiempo);
-                    document.getElementById("tablaprueba").insertRow(-1).innerHTML = '<td>'+contador+'</td><td>Colisión</td><td>'+tiempo+'</td><td>'+trayecto+'</td>';
+                    document.getElementById("tablaprueba").insertRow(-1).innerHTML = '<td>'+contador+'</td><td>Colisión</td><td>'+tiempo+'</td><td>'+trayecto+'</td><td>'+dayname+'</td>';
                     console.log({dayname});
                     contador ++;
                 }
@@ -176,12 +177,12 @@
                     mantElect += 1;
                     let tiempo = Math.floor(Math.random() * (480 - 120) + 120) +" minutos";
                     let trayecto = Math.floor(Math.random() * (3 - 1) + 1);
-                    if(trayecto == 1)
-                    trayecto = "Norte-Sur";
-                    else
-                    trayecto = "Sur-Norte";
+                    if(trayecto == 1){
+                    trayecto = "Norte-Sur";}
+                    else{
+                    trayecto = "Sur-Norte";}
                     console.log(tiempo);
-                    document.getElementById("tablaprueba").insertRow(-1).innerHTML = '<td>'+contador+'</td><td>Mantenimiento de sistemas eléctricos</td><td>'+tiempo+'</td><td>'+trayecto+'</td>';
+                    document.getElementById("tablaprueba").insertRow(-1).innerHTML = '<td>'+contador+'</td><td>Mantenimiento de sistemas eléctricos</td><td>'+tiempo+'</td><td>'+trayecto+'</td><td>'+dayname+'</td>';
                     contador ++;
                 }
 
@@ -189,12 +190,12 @@
                     reparaciones += 1;
                     let tiempo = Math.floor(Math.random() * (480 - 120)+ 120) +" minutos";
                     let trayecto = Math.floor(Math.random() * (3 - 1) + 1);
-                    if(trayecto > 1)
-                    trayecto = "Norte-Sur";
-                    else
-                    trayecto = "Sur-Norte";
+                    if(trayecto > 1){
+                    trayecto = "Norte-Sur";}
+                    else{
+                    trayecto = "Sur-Norte";}
                     console.log(tiempo);
-                    document.getElementById("tablaprueba").insertRow(-1).innerHTML = '<td>'+contador+'</td><td>Reparaciones en la vía</td><td>'+tiempo+'</td><td>'+trayecto+'</td>';
+                    document.getElementById("tablaprueba").insertRow(-1).innerHTML = '<td>'+contador+'</td><td>Reparaciones en la vía</td><td>'+tiempo+'</td><td>'+trayecto+'</td><td>'+dayname+'</td>';
                     contador ++;
                 }
 
@@ -202,12 +203,12 @@
                     cierres += 1;
                     let tiempo = Math.floor(Math.random() * (120 - 60)+ 60) +" minutos";
                     let trayecto = Math.floor(Math.random() * (3 - 1) + 1);
-                    if(trayecto > 1)
-                    trayecto = "Norte-Sur";
-                    else
-                    trayecto = "Sur-Norte";
+                    if(trayecto > 1){
+                    trayecto = "Norte-Sur";}
+                    else{
+                    trayecto = "Sur-Norte";}
                     console.log(tiempo);
-                    document.getElementById("tablaprueba").insertRow(-1).innerHTML = '<td>'+contador+'</td><td>Cierre en la vía</td><td>'+tiempo+'</td><td>'+trayecto+'</td>';
+                    document.getElementById("tablaprueba").insertRow(-1).innerHTML = '<td>'+contador+'</td><td>Cierre en la vía</td><td>'+tiempo+'</td><td>'+trayecto+'</td><td>'+dayname+'</td>';
                     contador ++;
                 }
 
@@ -215,25 +216,27 @@
                     manifestaciones += 1;
                     let tiempo = Math.floor(Math.random() * (120 - 60)+ 60) +" minutos";
                     let trayecto = Math.floor(Math.random() * (3 - 1) + 1);
-                    if(trayecto > 1)
-                    trayecto = "Norte-Sur";
-                    else
-                    trayecto = "Sur-Norte";
+                    if(trayecto > 1){
+                    trayecto = "Norte-Sur";}
+                    else{
+                    trayecto = "Sur-Norte";}
                     console.log(tiempo);
-                    document.getElementById("tablaprueba").insertRow(-1).innerHTML = '<td>'+contador+'</td><td>Manifestación</td><td>'+tiempo+'</td><td>'+trayecto+'</td>';
+                    document.getElementById("tablaprueba").insertRow(-1).innerHTML = '<td>'+contador+'</td><td>Manifestación</td><td>'+tiempo+'</td><td>'+trayecto+'</td><td>'+dayname+'</td>';
                     contador ++;
                 }
 
                 if(eventos >60 && eventos <=100){
                     let trayecto = Math.floor(Math.random() * (3 - 1) + 1);
-                    if(trayecto > 1)
-                    trayecto = "Norte-Sur";
-                    else
-                    trayecto = "Sur-Norte";
-                    document.getElementById("tablaprueba").insertRow(-1).innerHTML = '<td>'+contador+'</td><td>Flujo normal de tráfico</td><td>Sin novedad</td><td>'+trayecto+'</td>';
+                    if(trayecto > 1){
+                    trayecto = "Norte-Sur";}
+                    else{
+                    trayecto = "Sur-Norte";}
+                    document.getElementById("tablaprueba").insertRow(-1).innerHTML = '<td>'+contador+'</td><td>Flujo normal de tráfico</td><td>Sin novedad</td><td>'+trayecto+'</td><td>'+dayname+'</td>';
                     contador ++;
                 }
-            }
+
+                document.getElementById("eventsC").innerHTML = contador - 1;
+            //}
             }
             }, 1000);
         }

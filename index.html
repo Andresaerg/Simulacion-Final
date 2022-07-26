@@ -20,11 +20,6 @@
             <div>
                 <label for="inicio1">Inicio de Simulación:</label>
                 <input type="datetime-local" name="inicio" id="inicio" min="2022-07-25 00:00" autofocus required>
-                <!--input type="number" name="inicio" id="inicio1" min="1" max="31" placeholder="DD" required>/
-                <input type="number" name="inicio" id="inicio2" min="1" max="12" placeholder="MM" required>/
-                <input type="number" name="inicio" id="inicio3" min="2022" max="2023" placeholder="AAAA"required>-
-                <input type="number" name="inicio" id="inicio4" min="0" max="23" placeholder="HH" required>:
-                <input type="number" name="inicio" id="inicio5" min="0" max="59" placeholder="mm" required-->
             </div>
             <div>
                 <label for="final">Final de Simulación:</label>
@@ -32,23 +27,42 @@
             </div>
             <input type="button" onclick="start()" name="btn" id="btn" value="Iniciar Simulación">
         </form>
-        <div id="modalBtn" style="margin-left: 20%;"></div>
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Información</h5>
+        <div class="Linea">
+            <div id="modalBtn"></div>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Información</h5>
+                        </div>
+                        <div class="modal-body">
+                            Fecha de inicio de la simulación: <span class="item1" id="1"></span>
+                            <br>
+                            Fecha de finalización de la simulación: <span class="item2" id="2"></span>
+                            <hr>
+                            Tiempo de simulación: <span id="timer"></span>, <span id="prueba"></span>
+                            <br>
+                            Total de eventos: <span id="eventsC"></span>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
                     </div>
-                    <div class="modal-body">
-                        Fecha de inicio de la simulación: <span class="item1" id="1"></span>
-                        <br>
-                        Fecha de finalización de la simulación: <span class="item2" id="2"></span>
-                        <hr>
-                        Tiempo de simulación: <span id="timer"></span><br>
-                        <h3 id="prueba"></h3>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+            <div id="modalBtnInf"></div>
+            <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="myModalLabel">Informe Técnico</h5>
+                        </div>
+                        <div class="modal-body">
+                            <h1>ESTO ES UNA PRUEBA</h1>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -18,3 +18,10 @@ table th {
     padding: 10px 50px 10px 50px;
     background-color: #eaeaea;
 }
+
+.Linea{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
