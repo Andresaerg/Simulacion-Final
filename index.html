@@ -19,11 +19,11 @@
         <form class="myForm">
             <div>
                 <label for="inicio1">Inicio de Simulación:</label>
-                <input type="datetime-local" name="inicio" id="inicio" min="2022-07-25 00:00" autofocus required>
+                <input type="datetime-local" name="inicio" id="inicio" min="2022-07-26 00:00" autofocus required>
             </div>
             <div>
                 <label for="final">Final de Simulación:</label>
-                <input type="datetime-local" name="final" id="final" min="2022-07-26 00:00" autofocus required>
+                <input type="datetime-local" name="final" id="final" min="2022-07-27 00:00" autofocus required>
             </div>
             <input type="button" onclick="start()" name="btn" id="btn" value="Iniciar Simulación">
         </form>
@@ -36,13 +36,30 @@
                             <h5 class="modal-title" id="exampleModalLabel">Información</h5>
                         </div>
                         <div class="modal-body">
-                            Fecha de inicio de la simulación: <span class="item1" id="1"></span>
+                            <h4>Tiempos de simulación:</h4>
+                            Fecha de inicio: <span class="item1" id="1"></span>
                             <br>
-                            Fecha de finalización de la simulación: <span class="item2" id="2"></span>
+                            Fecha para finalización: <span class="item2" id="2"></span>
+                            <br><br>
+                            <span id="timer"></span>, <span id="prueba"></span>
                             <hr>
-                            Tiempo de simulación: <span id="timer"></span>, <span id="prueba"></span>
+                            <h4>Eventos de Simulación:</h4>
+                            <b>Total de eventos: <span id="eventsC"></span></b>
                             <br>
-                            Total de eventos: <span id="eventsC"></span>
+                            <b>Total de días con flujo normal: <span id="flujoNormal"></span></b>
+                            <br><br>
+                            <ul>
+                                <li>Mantenimientos en áreas verdes: <span id="areasVerdes"></span></li>
+                                <li>Mantenimientos de sistemas eléctricos: <span id="sisElects"></span></li>
+                                <li>Reparaciones menores en la vía: <span id="reparaciones"></span></li>
+                                <li>Colisiones varias: <span id="colisiones"></span></li>
+                                <li>Cierres preventivos: <span id="cierres"></span></li>
+                                <li>Manifestaciones generales: <span id="manifestaciones"></span></li>
+                            </ul>
+                            <br><br>
+                            <hr>
+                            <h4>Tiempo total de eventos:</h4>
+                            <span id="tiempoTot"></span>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -58,7 +75,10 @@
                             <h5 class="modal-title" id="myModalLabel">Informe Técnico</h5>
                         </div>
                         <div class="modal-body">
-                            <h1>ESTO ES UNA PRUEBA</h1>
+                            <h4>Optimización para la C1.</h4>
+                            Tomando en cuenta los resultados en la simulación, la cual tuvo una duración de <b><span id="duracion"></span> días</b>
+                            <br><br>
+                            <span id="paragraph"></span>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -76,6 +96,8 @@
                     <th>Tiempo transcurrido</th>
                     <th>Sentido de Trayecto</th>
                     <th>Día</th>
+                    <th>Hora</th>
+                    <th>Densidad</th>
                 </tr>
             </thead>
             <tbody align="center" id="tablaprueba">

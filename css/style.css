@@ -19,6 +19,10 @@ table th {
     background-color: #eaeaea;
 }
 
+tr:nth-child(even){
+    background-color: rgba(65, 105, 225, 0.2);
+}
+
 .Linea{
     display: flex;
     flex-direction: row;
